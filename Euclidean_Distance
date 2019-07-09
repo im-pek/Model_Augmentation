@@ -1,0 +1,17 @@
+from scipy.spatial import distance
+import numpy as np
+
+x = [[0,1],[0,0],[10,8]] #all values in multi-dimensional vector space
+xx = np.arange(0,8,1) #every possible point in entire multi-dimensional vector space
+
+minimums=[]
+for element in xx:
+    new_dist=[]
+    for item in x:
+        new_dist.append(distance.euclidean(element,item))
+    print (new_dist)
+    minimum=min(new_dist)
+    minimums.append(minimum)
+print (minimums)
+uniform_criterion=xx[np.argmax(minimums)]
+print (uniform_criterion)
